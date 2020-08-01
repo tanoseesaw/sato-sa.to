@@ -1,0 +1,13 @@
+Resources:
+  WebsiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: sato-sa.to
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+Outputs:
+  SatosanWebsiteBucket:
+    Value: !Ref WebsiteBucket
+  SatosanWebsiteURL:
+    Value: !GetAttr WebsiteBucket.WebsiteURL
