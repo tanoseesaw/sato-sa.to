@@ -8,5 +8,7 @@ Resources:
     Properties:
       BucketName: sato-sa.to
 Outputs:
-  SatosanBucket:
+  SatoSatoBucket:
     Value: !Ref Bucket
+  SatoSatoHoztedZone:
+    Value: !Ref HostedZone
