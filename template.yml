@@ -1,8 +1,4 @@
 Resources:
-  HostedZone:
-    Type: AWS::Route53::HostedZone
-    Properties:
-      Name: sato-sa.to
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -10,5 +6,3 @@ Resources:
 Outputs:
   SatoSatoBucket:
     Value: !Ref Bucket
-  SatoSatoHoztedZone:
-    Value: !Ref HostedZone
