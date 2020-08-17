@@ -1,8 +1,38 @@
+Parameters:
+  CertArn:
+    Type: String
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: sato-sa.to
+  CloudFront:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases:
+          - sato-sa.to
+        DefaultRootObject: index.html
+        Enabled: true
+        HttpVersion: http2
+        IPV6Enabled: true
+        Origins:
+          - Id: s3
+            DomainName: !GetAtt Bucket.DomainName
+            S3OriginConfig:
+              OriginAccessIdentity: !Join [ '/', [ 'origin-access-identity', 'cloudfront', !Ref OriginAccessIdentity ]]
+        DefaultCacheBehavior:
+          TargetOriginId: s3
+          ViewerProtocolPolicy: redirect-to-https
+          Compress: true
+          ForwardedValues:
+            Cookies:
+              Forward: none
+            QueryString: false
+        ViewerCertificate:
+          AcmCertificateArn: !Ref CertArn
+          MinimumProtocolVersion: TLSv1.2_2019
+          SslSupportMethod: sni-only
   OriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:

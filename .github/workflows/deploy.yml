@@ -18,3 +18,4 @@ jobs:
           name: sato-sato
           template: template.yml
           no-fail-on-empty-changeset: 1
+          parameter-overrides: "CertArn=${{ secret.AWS_CERT_ARN }}"
