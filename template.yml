@@ -3,6 +3,22 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: sato-sa.to
+  OriginAccessIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: access-identity-for-sato-sa.to
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref Bucket
+      PolicyDocument:
+        Statement:
+          - Action: s3:GetObject
+            Effect: Allow
+            Resource: !Join [ '/', [ !GetAtt Bucket.Arn, '*' ]]
+            Principal:
+              CanonicalUser: !GetAtt OriginAccessIdentity.S3CanonicalUserId
 Outputs:
   SatoSatoBucket:
     Value: !Ref Bucket
