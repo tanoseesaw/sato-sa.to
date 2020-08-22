@@ -28,5 +28,8 @@ module.exports = {
       filename: 'css/bundle.css',
     }),
   ],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+  },
   devtool: 'source-map',
 };
