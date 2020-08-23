@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "style": "stylelint src/stylesheets/*.scss"
   },
   "devDependencies": {
     "bulma": "^0.9.0",
@@ -14,5 +15,10 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "stylelint": "^13.6.1",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-scss": "^3.18.0"
   }
 }
