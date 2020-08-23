@@ -9,5 +9,5 @@ jobs:
         with:
           node-version: 14.x
       - run: yarn install
-      - name: build
-        run: yarn webpack --mode development
+      - run: yarn style
+      - run: yarn webpack --mode development
