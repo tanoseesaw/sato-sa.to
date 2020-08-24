@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -23,6 +24,17 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(jpg|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -30,11 +42,12 @@ module.exports = {
       filename: 'css/bundle.css',
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: '!!html-loader!src/index.html',
     }),
+    new HtmlWebpackInlineSVGPlugin(),
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'src'),
   },
   devtool: 'source-map',
 };
