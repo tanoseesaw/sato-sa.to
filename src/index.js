@@ -1,4 +1,4 @@
-require('./stylesheets/index.scss');
+import './stylesheets/index.scss';
 
 window.addEventListener('load', () => {
   document.querySelector('#party-button').addEventListener('click', () => {
