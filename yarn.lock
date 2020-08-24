@@ -5662,7 +5662,15 @@ stylelint-config-recommended@^3.0.0:
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
   integrity sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==
 
-stylelint-order@^4.1.0:
+stylelint-config-sass-guidelines@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-sass-guidelines/-/stylelint-config-sass-guidelines-7.0.0.tgz#ad94d9ed78731aba3b67c3cf31d5fc644523a4be"
+  integrity sha512-nWO8gtxv8T+UbAw7iM0RQp6VC3iJgOvqEIeqFBgHW+KgpZu65lYoe9Bf0fqvqxKJ/ngBD+/65BT3ql2u+7Qasg==
+  dependencies:
+    stylelint-order "^4.0.0"
+    stylelint-scss "^3.4.0"
+
+stylelint-order@^4.0.0, stylelint-order@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-4.1.0.tgz#692d05b7d0c235ac66fcf5ea1d9e5f08a76747f6"
   integrity sha512-sVTikaDvMqg2aJjh4r48jsdfmqLT+nqB1MOsaBnvM3OwLx4S+WXcsxsgk5w18h/OZoxZCxuyXMh61iBHcj9Qiw==
@@ -5678,7 +5686,7 @@ stylelint-prettier@^1.1.2:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-stylelint-scss@^3.18.0:
+stylelint-scss@^3.18.0, stylelint-scss@^3.4.0:
   version "3.18.0"
   resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.18.0.tgz#8f06371c223909bf3f62e839548af1badeed31e9"
   integrity sha512-LD7+hv/6/ApNGt7+nR/50ft7cezKP2HM5rI8avIdGaUWre3xlHfV4jKO/DRZhscfuN+Ewy9FMhcTq0CcS0C/SA==
