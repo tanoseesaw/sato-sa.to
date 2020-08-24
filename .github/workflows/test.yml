@@ -10,5 +10,5 @@ jobs:
           node-version: 14.x
       - run: yarn install
       - run: yarn eslint .
-      - run: yarn style
+      - run: yarn stylelint src
       - run: yarn webpack --mode development
