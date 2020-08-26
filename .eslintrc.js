@@ -8,7 +8,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['prettier'],
+  plugins: ['babel', 'prettier'],
   rules: {
     'prettier/prettier': 'error',
   },
