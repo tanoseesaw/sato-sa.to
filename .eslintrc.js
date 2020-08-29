@@ -3,14 +3,15 @@ module.exports = {
     browser: true,
     es2020: true,
   },
-  plugins: [
-    'airbnb-base',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended', 'plugin:jsx-a11y/recommended', 'airbnb'],
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['babel', 'react', 'react-hooks'],
+  plugins: ['babel', 'jsx-a11y', 'react', 'react-hooks'],
+  rules: {
+  },
 };
