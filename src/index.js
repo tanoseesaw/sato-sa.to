@@ -1,7 +1,8 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './stylesheets/index.scss';
+import Header from './components/header';
 
 window.addEventListener('load', () => {
-  document.querySelector('#party-button').addEventListener('click', () => {
-    document.querySelector('#sato-icon').setAttribute('class', 'party-color');
-  });
+  ReactDOM.render(<Header />, document.getElementById('mount-point'));
 });
