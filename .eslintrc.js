@@ -13,5 +13,6 @@ module.exports = {
   },
   plugins: ['babel', 'jsx-a11y', 'react', 'react-hooks'],
   rules: {
+    'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
   },
 };
