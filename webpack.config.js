@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/bundle.js',
+    filename: 'js/bundle.[hash].js',
   },
   module: {
     rules: [
@@ -46,7 +46,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/bundle.css',
+      filename: 'css/bundle.[hash].css',
     }),
     new HtmlWebpackPlugin({
       template: '!!html-loader!src/index.html',
