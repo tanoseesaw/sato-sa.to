@@ -11,7 +11,9 @@
 }
 
 .party-color {
-  animation: party-parrot 1s infinite;
+  path {
+    animation: party-parrot 1s infinite;
+  }
 }
 
 @keyframes party-parrot {
