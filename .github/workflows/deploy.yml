@@ -31,18 +31,10 @@ jobs:
           node-version: ${{ steps.node-version.outputs.NODE_VERSION }}
       - run: yarn install
       - run: yarn webpack --mode production
-      - uses: jakejarvis/s3-sync-action@master
+      - uses: aws-actions/configure-aws-credentials@v1
         with:
-          args: --follow-symlinks --delete
-        env:
-          AWS_S3_BUCKET: sato-sa.to
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SOURCE_DIR: dist
-      - uses: awact/cloudfront-action@master
-        env:
-          SOURCE_PATH: '/index.html'
-          AWS_REGION: 'us-west-2'
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          DISTRIBUTION_ID: E2CJ7FM52BXA4J
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+      - run: aws s3 sync dist s3://sato-sa.to --acl private --follow-symlinks --delete
+      - run: aws cloudfront create-invalidation --distribution-id "E2CJ7FM52BXA4J" --path "/*"
