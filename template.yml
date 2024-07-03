@@ -4,10 +4,12 @@ Parameters:
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
     Properties:
       BucketName: sato-sa.to
   CloudFront:
     Type: AWS::CloudFront::Distribution
+    DeletionPolicy: Retain
     Properties:
       DistributionConfig:
         Aliases:
@@ -35,11 +37,13 @@ Resources:
           SslSupportMethod: sni-only
   OriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    DeletionPolicy: Retain
     Properties:
       CloudFrontOriginAccessIdentityConfig:
         Comment: access-identity-for-sato-sa.to
   BucketPolicy:
     Type: AWS::S3::BucketPolicy
+    DeletionPolicy: Retain
     Properties:
       Bucket: !Ref Bucket
       PolicyDocument:
@@ -51,6 +55,7 @@ Resources:
               CanonicalUser: !GetAtt OriginAccessIdentity.S3CanonicalUserId
   RecordSet:
     Type: AWS::Route53::RecordSetGroup
+    DeletionPolicy: Retain
     Properties:
       HostedZoneId: Z01008563ORHR2EK0XFKC
       RecordSets:
