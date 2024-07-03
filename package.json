@@ -5,9 +5,9 @@
     "style": "stylelint src/stylesheets/*.scss"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/preset-react": "^7.10.4",
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
     "babel-loader": "^8.1.0",
     "bulma": "^0.9.0",
     "css-loader": "^5.0.1",
