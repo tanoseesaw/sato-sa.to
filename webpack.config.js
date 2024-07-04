@@ -65,7 +65,12 @@ module.exports = {
     new HtmlWebpackInlineSVGPlugin(),
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'src'),
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+    },
   },
   devtool: 'source-map',
 };
