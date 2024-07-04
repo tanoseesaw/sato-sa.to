@@ -7,7 +7,7 @@
 }
 
 .default-color-svg {
-  fill: $text;
+  fill: var(--bulma-$text);
 }
 
 .party-color {
