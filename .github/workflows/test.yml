@@ -5,13 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
-          cache: yarn
-      - run: yarn install
-      - run: yarn eslint .
-      - run: yarn stylelint 'src/**/*.scss'
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm eslint .
+      - run: pnpm stylelint 'src/**/*.scss'
   build:
     runs-on: ubuntu-latest
     steps:
@@ -19,6 +20,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
-          cache: yarn
-      - run: yarn install
-      - run: yarn webpack --mode development
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm webpack --mode development
