@@ -13,7 +13,7 @@ export default () => {
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a href="/" className="navbar-item">
-          <Logo width="55" className={partyMode ? 'party-color' : 'default-color-svg'} />
+          <Logo width="55" className={partyMode ? 'party-color' : 'default-color-svg'} alt="sato-sa.to" />
         </a>
       </div>
       <div className="navbar-menu">
