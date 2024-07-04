@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: corepack install
       - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
@@ -16,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: corepack install
       - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
