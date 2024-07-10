@@ -20,7 +20,7 @@ jobs:
       - run: yarn webpack --mode production
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          roke-to-assume: arn:aws:iam::009775665146:role/deploy-sato-sato-role
+          role-to-assume: arn:aws:iam::009775665146:role/deploy-sato-sato-role
           aws-region: us-west-2
       - run: aws s3 sync dist s3://sato-sa.to --acl private --follow-symlinks --delete
       - run: aws cloudfront create-invalidation --distribution-id "E2CJ7FM52BXA4J" --path "/*"
